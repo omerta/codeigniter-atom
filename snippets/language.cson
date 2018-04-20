@@ -1,0 +1,5 @@
+'.php':
+  # Codeigniter Language Class
+  'Fetching a Line of Text':
+    'prefix': 'cifetline'
+    'body': "$this->lang->line('${1:}');$0"

@@ -1,0 +1,30 @@
+'.php':
+  'Codeigniter Seeder':
+    'prefix': 'ciseeder'
+    'body': """
+      <?php
+      defined('BASEPATH') OR exit('No direct script access allowed');
+
+      class ${1:Classname}Seeder extends Seeder
+      {
+
+          private $table = '';
+
+          public function run()
+          {
+              $this->db->truncate($this->table);
+              $data = [
+                'id' => 1,
+                'name' => 'Book',
+              ];
+
+              $this->db->insert($this->table, $data);
+
+          }
+
+      }
+    """
+
+  'Call Seeder':
+    'prefix': 'ciloadseeder'
+    'body': "$this->seeder->call('${1:Seeder}');$0"
