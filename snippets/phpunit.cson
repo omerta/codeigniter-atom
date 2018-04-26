@@ -1,0 +1,24 @@
+'.php':
+  # Codeigniter Input Class
+  'PHPUnit Request':
+    'prefix': 'ciunitget'
+    'body': "$this->request('${1:}');$0"
+
+  'PHPUnit assertResponseCode':
+    'prefix': 'ciunitresponsecode'
+    'body': "$this->assertResponseCode('${1:}');$0"
+
+  'PHPUnit setCallable Mock':
+    'prefix': 'ciunitsetcallable'
+    'body': """
+      $this->request->setCallable(
+            function ($CI) {
+              // Get mock object
+              $google = $this->getDouble(
+                'google', ['loginURL' => TRUE]
+              );
+              // Inject mock object
+              $CI->google = $google;
+            }
+          );
+    """
